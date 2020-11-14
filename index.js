@@ -311,6 +311,7 @@ class Search extends PureComponent {
               shadowRadius: this.props.shadowRadius
             }
           ]}
+          onTouchStart={this.props.onTouchStart}
           editable={this.props.editable}
           value={this.state.keyword}
           onChangeText={this.onChangeText}
@@ -450,7 +451,7 @@ const getStyles = (inputHeight, isRtl) => {
     },
     iconDelete: {
       position: 'absolute',
-      [isRtl ? 'left' : 'right']: 70,
+      [isRtl ? 'left' : 'right']: 88,
       top: middleHeight - 7,
       height: 14,
       width: 14
@@ -476,6 +477,7 @@ const getStyles = (inputHeight, isRtl) => {
  * Props
  */
 Search.propTypes = {
+  onTouchStart: PropTypes.func,
   /**
    * onFocus
    * return a Promise
@@ -604,6 +606,7 @@ Search.defaultProps = {
   shadowVisible: false,
   useClearButton: true,
   direction: 'ltr',
-};
+  onTouchStart: () => {},
+ };
 
 export default Search;
